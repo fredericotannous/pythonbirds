@@ -1,41 +1,26 @@
-class Pessoa: #froma de criar seus tipos personalizados - forma de gelo
+class Pessoa: #forma de criar seus tipos personalizados - forma de gelo
     olhos = 2 #atributo default
 
-    def __init__(self, *filhos, nome = None, idade = 23):
+    def __init__(self, *filhos, nome = None, idade=23): #metodo
         self.idade = idade
-        self.nome = nome
+        self.nome = nome #atributo de dado
         self.filhos = list(filhos)
 
-    def cumprimentar(self): #MÉTODO
-        return f'olá {id(self)}'
-
-    @staticmethod
-    def metodo_estatico():
-        return 42
-
-    @classmethod
-    def nome_e_atributos_de_classe(cls): #quando você quer acessar dados da própria classe
-        return f'{cls} - olhos {cls.olhos}'
+    def cumprimentar(self):
+        return f'Olá {id(self)}'
 
 
 if __name__ == '__main__':
-    mister = Pessoa(nome = 'Mister')
-    luciano = Pessoa(mister, nome ='Luciano') #objeto
-    print(Pessoa.cumprimentar(luciano))
-    print(id(luciano))
-    print(luciano.cumprimentar())
-    print(luciano.nome)
-    print(luciano.idade)
-    for filho in luciano.filhos:
+    renzo = Pessoa(nome='Renzo')
+    frederico = Pessoa(renzo, nome='Frederico')
+    print(Pessoa.cumprimentar(frederico))
+    print(id(frederico))
+    print(frederico.cumprimentar())
+    print(frederico.nome)
+    print(frederico.idade)
+    for filho in frederico.filhos:
         print(filho.nome)
-    del luciano.filhos
-    luciano.olhos = 1 #muda a id de luciano.olhos id(luciano.olhos)
-    luciano.sobrenome = 'Ramalho'
-    print(luciano.__dict__)  #quais os atributos de instância de um objeto?
-    print(mister.__dict__)
-    print(Pessoa.olhos)
-    print(mister.olhos)
-    print(luciano.olhos)
-    print(id(mister.olhos), id(luciano.olhos), id(Pessoa.olhos))
-    print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
-    print(Pessoa.nome_e_atributos_de_classe(), luciano.nome_e_atributos_de_classe())
+    frederico.sobrenome = 'Tannous'
+    print(frederico.__dict__) #dunderdict
+    print(renzo.__dict__)
+    del frederico.filhos
