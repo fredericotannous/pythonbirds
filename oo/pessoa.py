@@ -1,4 +1,4 @@
-class Pessoa:
+class Pessoa: #froma de criar seus tipos personalizados - forma de gelo
     olhos = 2 #atributo default
 
     def __init__(self, *filhos, nome = None, idade = 23):
